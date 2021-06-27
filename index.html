@@ -1,679 +1,696 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Текстелятор</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	<script type="text/javascript"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
- <link rel="shortcut icon" href="https://www.favicon.by/download.php?favicon=60d5c20b33dd8.ico" type="image/x-icon">
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Текстелятор</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<link rel="shortcut icon" href="https://www.favicon.by/download.php?favicon=60d5c20b33dd8.ico" type="image/x-icon">
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+ym(82187062, "init", {
+clickmap:true,
+trackLinks:true,
+accurateTrackBounce:true,
+webvisor:true
+});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/82187062" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 </head>
 <body style="margin: 0px;"> 
 <div id="select_txt" style="white-space: pre-line;"> </div>
 
-    <div class="textarea_container">
-        <div class="textarea" role="textbox" id="textarea" contenteditable="plaintext-only" spellcheck="false">Это <icon></icon> Текстелятор. Он рандомно добавляет в текст эмодзи, отрицание или матюки. Например, фразу «я люблю пиво и цветы» он может превратить в «я <no1>не</no1> люблю пиво и <no1>сука</no1> цветы».<br /><br />Напиши сюда текст, а потом нажми на одну из цветных кнопок внизу. Попробуй <a onclick="textgimn()" id="gimn">гимн СССР</a>, <a onclick="textpushkin()" id="pushkin">отрывок из поэмы «Руслан и Людмила»</a> или просто прямо этот текст.<br /><br />Сделано в <a contenteditable="false" href="https://intuition.team/park">Парке</a>. За идею спасибо <a contenteditable="false" href="https://ldwg.ru/">Людвигу</a>. <a contenteditable="false" href="https://verymoko.github.io/">Максим</a> сдвинул с места и cоздал первую версию (спасибо за помощь <a contenteditable="false" href="https://stackoverflow.com/users/story/776442">Максиму Камалову</a>), <a contenteditable="false" href="https://mafrens.ru/we/martin">Мартин</a> присоединился в конце и ковырял готовенькое.</div>
-        <div class="button-group-cont">
-            <div class="button-group">
-                <button class="material-icons-outlined button buttonbutton" id="button_no" type="button" onclick="spacePosition_no(character)">
-                    dangerous
-                </button>
-                <button class="material-icons-outlined button buttonbutton" id="button_emoji" type="button" onclick="spacePosition_emoji(character)">
-                    emoji_emotions
-                </button>
-                <button class="material-icons-outlined button buttonbutton" id="button_fuck" onclick="spacePosition(character)">
-                    local_fire_department
-                </button>
+<div class="textarea_container">
+<div class="textarea" role="textbox" id="textarea" contenteditable="plaintext-only" spellcheck="false">Это <icon></icon> Текстелятор. Он рандомно добавляет в текст эмодзи, отрицание или матюки. Например, фразу «я люблю пиво и цветы» он может превратить в «я <no1>не</no1> люблю пиво и <no1>сука</no1> цветы».<br /><br />Напиши сюда текст, а потом нажми на одну из цветных кнопок внизу. Попробуй <a onclick="textgimn()" id="gimn">гимн СССР</a>, <a onclick="textpushkin()" id="pushkin">отрывок из поэмы «Руслан и Людмила»</a> или просто прямо этот текст.<br /><br />Сделано в <a contenteditable="false" href="https://intuition.team/park">Парке</a>. За идею спасибо <a contenteditable="false" href="https://ldwg.ru/">Людвигу</a>. <a contenteditable="false" href="https://verymoko.github.io/">Максим</a> сдвинул с места и cоздал первую версию (спасибо за помощь <a contenteditable="false" href="https://stackoverflow.com/users/story/776442">Максиму Камалову</a>), <a contenteditable="false" href="https://mafrens.ru/we/martin">Мартин</a> присоединился в конце и ковырял готовенькое.</div>
+<div class="button-group-cont">
+    <div class="button-group">
+	<button class="material-icons-outlined button buttonbutton" id="button_no" type="button" onclick="spacePosition_no(character)">
+	    dangerous
+	</button>
+	<button class="material-icons-outlined button buttonbutton" id="button_emoji" type="button" onclick="spacePosition_emoji(character)">
+	    emoji_emotions
+	</button>
+	<button class="material-icons-outlined button buttonbutton" id="button_fuck" onclick="spacePosition(character)">
+	    local_fire_department
+	</button>
 
-                <button class="material-icons-outlined button" id="button-clear">
-                    delete_outline
-                </button>
-                <button class="material-icons-outlined button" id="button-copy" onclick="copy_data(select_txt)">
-                    copy_all
-                </button>
-                <button class="material-icons-outlined button" onclick="textRefresh(firstText)" style="">
-                    refresh
-                </button>
-            </div>
-        </div>
+	<button class="material-icons-outlined button" id="button-clear">
+	    delete_outline
+	</button>
+	<button class="material-icons-outlined button" id="button-copy" onclick="copy_data(select_txt)">
+	    copy_all
+	</button>
+	<button class="material-icons-outlined button" onclick="textRefresh(firstText)" style="">
+	    refresh
+	</button>
     </div>
+</div>
+</div>
 </body>
 
 <style>
 icon {
-	content: url("https://www.favicon.by/download.php?favicon=60d5c20b33dd8.ico");
-	padding: 3px;
-	border-radius: 3px;
-	margin-bottom: -2px;
-	border: 1px solid;
+content: url("https://www.favicon.by/download.php?favicon=60d5c20b33dd8.ico");
+padding: 3px;
+border-radius: 3px;
+margin-bottom: -2px;
+border: 1px solid;
 }
 
 a {
-  border: 0;
-    text-decoration: none;
-    color: #0051e8;
-    border-color: #bad1ff !important;
-    border-style: solid;
-    border-bottom-width: thin;
-    -webkit-transition: all .2s ease;
+border: 0;
+text-decoration: none;
+color: #0051e8;
+border-color: #bad1ff !important;
+border-style: solid;
+border-bottom-width: thin;
+-webkit-transition: all .2s ease;
 }
 
 a:hover {
-    color: #ff2424;
-    border-color: #ffc4c4 !important;
-    -webkit-transition: all .1s ease;
+color: #ff2424;
+border-color: #ffc4c4 !important;
+-webkit-transition: all .1s ease;
 }
 
 a, b, blockquote, center, code, div, h1, h2, h3, h4, h5, h6, i, img, p, pre, span, table, td, th, tr, u, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
+margin: 0;
+padding: 0;
+border: 0;
 }
 
 *, :after, :before {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
+-webkit-box-sizing: content-box;
+-moz-box-sizing: content-box;
+box-sizing: content-box;
 }
 
 
 .textarea_container {
-    max-height: calc(100vh - 7vw - 4vw - 12vw);
-    padding: 4vw 1vw 12vw 1vw;
-    overflow-y: auto;
+max-height: calc(100vh - 7vw - 4vw - 12vw);
+padding: 4vw 1vw 12vw 1vw;
+overflow-y: auto;
 }
 
 .textarea_container {
-    max-height: calc(100vh - 7vw - 0vw - 9vw);
-    padding: 2vw 1vw 7vw 1vw;
-    overflow-y: auto;
+max-height: calc(100vh - 7vw - 0vw - 9vw);
+padding: 2vw 1vw 7vw 1vw;
+overflow-y: auto;
 }
 
 .textarea {
-    max-width: 780px;
-    margin: auto;
-    box-sizing: border-box;
-    display: block;
-    outline: 0;
-    transition: ease-in-out 0.3s, font-size 0s;
-    padding: 20px;
+max-width: 780px;
+margin: auto;
+box-sizing: border-box;
+display: block;
+outline: 0;
+transition: ease-in-out 0.3s, font-size 0s;
+padding: 20px;
 
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 1.6;
+font-family: "IBM Plex Sans", sans-serif;
+font-size: 30px;
+font-weight: 400;
+line-height: 1.6;
 
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-    -ms-word-break: break-all;
-    word-break: break-word;
-    word-wrap: normal;
-    white-space: pre-wrap;
+-webkit-hyphens: auto;
+-moz-hyphens: auto;
+-ms-hyphens: auto;
+hyphens: auto;
+-ms-word-break: break-all;
+word-break: break-word;
+word-wrap: normal;
+white-space: pre-wrap;
 
-    /*max-width: 800px;*/
-    /*font-size: 21px;*/
-    /*border: 1px solid gainsboro;*/
-    /*border-radius: 10px;*/
-    /*padding: 40px 45px;*/
+/*max-width: 800px;*/
+/*font-size: 21px;*/
+/*border: 1px solid gainsboro;*/
+/*border-radius: 10px;*/
+/*padding: 40px 45px;*/
 }
 
 .textarea:hover {
-    background: #00000005;
+background: #00000005;
 }
 
 @media screen and (min-width: 480px) {
 .textarea:active, .textarea:focus {
-    background: #00000005;
+background: #00000005;
 }
 }
 
 .textarea a {
-    border-bottom: 1px dashed;
-    cursor: pointer;
+border-bottom: 1px dashed;
+cursor: pointer;
 }
 
 .textarea a[href^="http"] {
-    border-bottom: 1px solid;
-    cursor: pointer;
+border-bottom: 1px solid;
+cursor: pointer;
 }
 
 .button-group-cont {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    overflow: visible;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    height: 7vw;
-    min-height: 60px;
+position: fixed;
+bottom: 0;
+left: 0;
+overflow: visible;
+-webkit-overflow-scrolling: touch;
+width: 100%;
+height: 7vw;
+min-height: 60px;
 }
 
 .button-group {
-    width: 100%;
-    display: flex;
-    margin: 0;
-    justify-content: center;
-    height: 100%;
+width: 100%;
+display: flex;
+margin: 0;
+justify-content: center;
+height: 100%;
 
-    max-width: 100vw;
+max-width: 100vw;
 }
 
 .button {
-    font-size: 26px;
-    font-weight: 400;
-    line-height: 1.6;
-    transition: ease 0.3s;
-    vertical-align: text-bottom;
-    width: 100%;
-    /*letter-spacing: 0.1em;*/
-    font-weight: 400;
-    border: 0;
-    padding: 0 20px;
-    margin: 0;
-    cursor: pointer;
-    transition: ease-in-out 0.3s;
-    margin-bottom: -20px;
-    padding-bottom: 20px;
+font-size: 26px;
+font-weight: 400;
+line-height: 1.6;
+transition: ease 0.3s;
+vertical-align: text-bottom;
+width: 100%;
+/*letter-spacing: 0.1em;*/
+font-weight: 400;
+border: 0;
+padding: 0 20px;
+margin: 0;
+cursor: pointer;
+transition: ease-in-out 0.3s;
+margin-bottom: -20px;
+padding-bottom: 20px;
 }
 
 .button:hover {
-    transform: translate(0px, -20px);
-    transition: cubic-bezier(0.54, 0.07, 0, 0.99) 0.2s;
+transform: translate(0px, -20px);
+transition: cubic-bezier(0.54, 0.07, 0, 0.99) 0.2s;
 }
 
 .button:active {
-    filter: brightness(0.95);
+filter: brightness(0.95);
 }
 
 .material-icons-outlined {
-    font-family: "Material Icons";
-    /*background: #efefef;*/
-    /*width: 7vw;*/
-    /*min-width: 7vw;*/
+font-family: "Material Icons";
+/*background: #efefef;*/
+/*width: 7vw;*/
+/*min-width: 7vw;*/
 }
 
 #button_fuck {
-    background: darkkhaki;
-    color: cornsilk;
+background: darkkhaki;
+color: cornsilk;
 }
 
 #button_emoji {
-    background: cadetblue;
-    color: aliceblue;
+background: cadetblue;
+color: aliceblue;
 }
 
 #button_no {
-    background: bisque;
-    color: darksalmon;
+background: bisque;
+color: darksalmon;
 }
 
 @media screen and (max-width: 480px) {
-	icon {
-    		padding: 2px;
-    		transform: scale(0.7);
-		margin-bottom: -4px;
-	}
+icon {
+	padding: 2px;
+	transform: scale(0.7);
+	margin-bottom: -4px;
+}
 
-    .textarea_container {
-        max-height: 100%;
-        padding: 0 0 50px 0;
-        overflow-y: visible;
-    }
+.textarea_container {
+max-height: 100%;
+padding: 0 0 50px 0;
+overflow-y: visible;
+}
 
-    /*body {*/
-    /*    background: #00000005;*/
-    /*}*/
+/*body {*/
+/*    background: #00000005;*/
+/*}*/
 
-    .textarea {
-        font-size: 18px;
-        /*margin: 10px;*/
-        /*padding: 15px;*/
-        /*border-radius: 10px;*/
-        /*background: white;*/
-        /*border: 1px solid #00000020;*/
-        border: 0px solid gainsboro;
-        border-radius: 0px;
-        padding: 20px;
-    }
+.textarea {
+font-size: 18px;
+/*margin: 10px;*/
+/*padding: 15px;*/
+/*border-radius: 10px;*/
+/*background: white;*/
+/*border: 1px solid #00000020;*/
+border: 0px solid gainsboro;
+border-radius: 0px;
+padding: 20px;
+}
 
-    /*.textarea:hover {*/
-    /*    background: white;*/
-    /*}*/
+/*.textarea:hover {*/
+/*    background: white;*/
+/*}*/
 
-    .button {
-        font-size: 16px;
-    }
+.button {
+font-size: 16px;
+}
 
-    .button-group-cont {
-        overflow-x: scroll;
-    }
+.button-group-cont {
+overflow-x: scroll;
+}
 
-    .button {
-        margin-bottom: 0px;
-        padding-bottom: 0px;
-    }
+.button {
+margin-bottom: 0px;
+padding-bottom: 0px;
+}
 
-    .button:hover {
-        transform: translate(0px, 0px);
-        transition: cubic-bezier(0.54, 0.07, 0, 0.99) 0.2s;
-        filter: brightness(0.95);
-    }
+.button:hover {
+transform: translate(0px, 0px);
+transition: cubic-bezier(0.54, 0.07, 0, 0.99) 0.2s;
+filter: brightness(0.95);
+}
 
-    .buttonbutton {
-        font-size: 16px;
-        /*flex: 1;*/
-    }
+.buttonbutton {
+font-size: 16px;
+/*flex: 1;*/
+}
 
-    .material-icons-outlined {
-        font-size: 16px;
-        background: white;
-        height: 100%;
-    }
+.material-icons-outlined {
+font-size: 16px;
+background: white;
+height: 100%;
+}
 
-    .button-group-cont {
-        /*overflow-x: scroll;*/
-        /*position: sticky;*/
-        /*bottom: 10px;*/
-        /*margin: 20px 10px 0 10px;*/
-        /*width: auto;*/
-        /*border-radius: 10px;*/
-        /*border: 1px solid #fafafa;*/
-    }
-    /*.button-group-action {*/
-    /* width: 80px; */
-    /* min-width: 80px; */
-    /*    display: flex;*/
-    /*    margin-top: 1px;*/
-    /* flex: 1; */
-    /*}*/
-    /*.button-group {*/
-    /*    -webkit-overflow-scrolling: touch;*/
-    /*    animation-name: Swing;*/
-    /*    animation-duration: 2s;*/
-    /*    animation-delay: 1s;*/
-    /*    animation-iteration-count: 1;*/
-    /*}*/
+.button-group-cont {
+/*overflow-x: scroll;*/
+/*position: sticky;*/
+/*bottom: 10px;*/
+/*margin: 20px 10px 0 10px;*/
+/*width: auto;*/
+/*border-radius: 10px;*/
+/*border: 1px solid #fafafa;*/
+}
+/*.button-group-action {*/
+/* width: 80px; */
+/* min-width: 80px; */
+/*    display: flex;*/
+/*    margin-top: 1px;*/
+/* flex: 1; */
+/*}*/
+/*.button-group {*/
+/*    -webkit-overflow-scrolling: touch;*/
+/*    animation-name: Swing;*/
+/*    animation-duration: 2s;*/
+/*    animation-delay: 1s;*/
+/*    animation-iteration-count: 1;*/
+/*}*/
 }
 
 no1,
 no2,
 no3 {
-    animation-name: Swing1;
-    animation-duration: 2s;
-    animation-delay: 0.1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-    -webkit-animation-fill-mode: both;
-    border-bottom: 1px solid transparent;
+animation-name: Swing1;
+animation-duration: 2s;
+animation-delay: 0.1s;
+animation-iteration-count: 1;
+animation-fill-mode: both;
+-webkit-animation-fill-mode: both;
+border-bottom: 1px solid transparent;
 }
 
 noo {
-    border-bottom: 1px solid #e401017a;
+border-bottom: 1px solid #e401017a;
 }
 
 @keyframes Swing1 {
-    0% {
-        background-color: transparent;
-    }
+0% {
+background-color: transparent;
+}
 
-    50% {
-        border-bottom: 1px solid #e401017a;
-    }
+50% {
+border-bottom: 1px solid #e401017a;
+}
 
-    100% {
-        background-color: transparent;
-    }
+100% {
+background-color: transparent;
+}
 }
 
 @keyframes Swing {
-    0%,
-    to {
-        transform: translateX(0);
-    }
-    60% {
-        transform: translateX(-200px);
-    }
+0%,
+to {
+transform: translateX(0);
+}
+60% {
+transform: translateX(-200px);
+}
 }
 
 </style>
 
 <script>
-    let character = " ";
-    let firstText = document.getElementById("textarea").innerHTML;
+let character = " ";
+let firstText = document.getElementById("textarea").innerHTML;
 
-    document.getElementsByClassName("button").onclick = function () {
-        var html = document.getElementById("textarea").innerHTML;
-        html = html.replace(/<a[^>]+>/g, "");
-        html = html.replace(/<(?!br\s*\/?)[^>]+>/g, "");
-        document.getElementById("textarea").innerHTML = html;
-    };
+document.getElementsByClassName("button").onclick = function () {
+var html = document.getElementById("textarea").innerHTML;
+html = html.replace(/<a[^>]+>/g, "");
+html = html.replace(/<(?!br\s*\/?)[^>]+>/g, "");
+document.getElementById("textarea").innerHTML = html;
+};
 
-    function spacePosition(character) {
-        var emojis = ["<no1>блять</no1>", "<no1>нахуй</no1>", "<no1>сука</no1>", "<no1>ебать</no1>"];
-        document.querySelectorAll("no1").forEach((e) => e.remove()); // чистит текст от всех вставленных элементов;
-        // let initialText = document.getElementById("textarea").innerHTML.replace(/\n/g, '<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>').replace(/\s+/g, "<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>").trim() + "sdasd"; // чистит от лишних пробелов;
+function spacePosition(character) {
+var emojis = ["<no1>блять</no1>", "<no1>нахуй</no1>", "<no1>сука</no1>", "<no1>ебать</no1>"];
+document.querySelectorAll("no1").forEach((e) => e.remove()); // чистит текст от всех вставленных элементов;
+// let initialText = document.getElementById("textarea").innerHTML.replace(/\n/g, '<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>').replace(/\s+/g, "<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>").trim() + "sdasd"; // чистит от лишних пробелов;
 
-        var html = document.getElementById("textarea").innerHTML + " ";
-        html = html.replace(/<a[^>]+>/g, "");
-        html = html.replace(/ \»/g, "»");
-        html = html.replace(/ \,/g, ",");
-        // html = html.replace(/\s{2,}/g, ' ');
-        // html = html.replace(/<(?!br\s*\/?)[^>]+>/g, '');
-        document.getElementById("textarea").innerHTML = html;
+var html = document.getElementById("textarea").innerHTML + " ";
+html = html.replace(/<a[^>]+>/g, "");
+html = html.replace(/ \»/g, "»");
+html = html.replace(/ \,/g, ",");
+// html = html.replace(/\s{2,}/g, ' ');
+// html = html.replace(/<(?!br\s*\/?)[^>]+>/g, '');
+document.getElementById("textarea").innerHTML = html;
 
-        let initialText =
-            document
-                .getElementById("textarea")
-                .innerHTML.replace(/(?:\r\n|\r|\n)/g, "<br /><br />")
-                .replace(/\s+/g, "<br /><br />")
-                .trim() + " "; // чистит от лишних пробелов
+let initialText =
+    document
+	.getElementById("textarea")
+	.innerHTML.replace(/(?:\r\n|\r|\n)/g, "<br /><br />")
+	.replace(/\s+/g, "<br /><br />")
+	.trim() + " "; // чистит от лишних пробелов
 
-        // initialText = initialText.replace(/<\/div>/gi, "\n");
-        // initialText = initialText.replace(/<\/li>/gi, "\n");
-        // initialText = initialText.replace(/<li>/gi, "  *");
-        // initialText = initialText.replace(/<\/ul>/gi, "\n");
-        // initialText = initialText.replace(/<\/p>/gi, "\n");
-        // initialText = initialText.replace(/<br\/?>/gi, "\n");
-        // initialText = initialText.replace(/<[^>]+>/gi, "");
+// initialText = initialText.replace(/<\/div>/gi, "\n");
+// initialText = initialText.replace(/<\/li>/gi, "\n");
+// initialText = initialText.replace(/<li>/gi, "  *");
+// initialText = initialText.replace(/<\/ul>/gi, "\n");
+// initialText = initialText.replace(/<\/p>/gi, "\n");
+// initialText = initialText.replace(/<br\/?>/gi, "\n");
+// initialText = initialText.replace(/<[^>]+>/gi, "");
 
-        let characterCount = initialText.split(character).length - 1; // считает кол-во пробелов;
-        console.log(characterCount);
-        let i = 0;
-        // повторяем рандомное кол-во раз, от 1 до кол-во пробелов;
-        do {
-            let initialText = document.getElementById("textarea").innerHTML;
-            let indexes = [];
-            let index = initialText.indexOf(character, 0);
+let characterCount = initialText.split(character).length - 1; // считает кол-во пробелов;
+console.log(characterCount);
+let i = 0;
+// повторяем рандомное кол-во раз, от 1 до кол-во пробелов;
+do {
+    let initialText = document.getElementById("textarea").innerHTML;
+    let indexes = [];
+    let index = initialText.indexOf(character, 0);
 
-            while (index !== -1) {
-                indexes.push(index);
-                index = initialText.indexOf(character, index + 1);
-            }
-
-            var addedText = emojis[Math.floor(Math.random() * emojis.length)];
-
-            let randomCharacterPosition = indexes[Math.floor(Math.random() * indexes.length)];
-
-            console.log(initialText[randomCharacterPosition - 1]);
-            console.log(initialText[randomCharacterPosition - 1]);
-            console.log(initialText[randomCharacterPosition - 2]);
-            console.log(initialText[randomCharacterPosition + 1]);
-            console.log(initialText[randomCharacterPosition + 2]);
-            console.log("К О Н Е Ц   П Р О В Е Р К И");
-
-            if (
-                initialText[randomCharacterPosition - 1] == ">" ||
-                initialText[randomCharacterPosition - 1] == "." ||
-                initialText[randomCharacterPosition - 1] == "," ||
-                initialText[randomCharacterPosition - 2] == ">" ||
-                initialText[randomCharacterPosition + 3] == "и" ||
-                initialText[randomCharacterPosition + 1] == "<" ||
-                initialText[randomCharacterPosition + 2] == "<"
-            ) {
-                console.log("П Р О П У С Т И Л");
-            } else {
-                let newText = initialText.slice(0, randomCharacterPosition) + " " + addedText + initialText.slice(randomCharacterPosition);
-                newText = newText.replace(/ \»/g, "»");
-                newText = newText.replace(/ \,/g, ",");
-                document.getElementById("textarea").innerHTML = newText
-                    .replace(/(?:\r\n|\r|\n)/g, "<br />")
-                    .replace(/\s+/g, " ")
-                    .trim();
-                console.log("C Д Е Л А Л");
-            }
-            i++;
-        } while (i < Math.ceil(Math.random() * (characterCount - characterCount * 0.8)));
-    }
-    // Кнопка отчистки
-    document.getElementById("button-clear").onclick = function () {
-        document.querySelectorAll("no1").forEach((e) => e.remove());
-        document.querySelectorAll("no2").forEach((e) => e.remove());
-        document.querySelectorAll("no3").forEach((e) => e.remove());
-
-        var html = document.getElementById("textarea").innerHTML;
-        html = html.replace(/<a[^>]+>/g, "");
-        html = html.replace(/<(?!br\s*\/?)[^>]+>/g, "");
-        html = html.replace(/ \+/g, " ");
-        html = html.replace(/ \,/g, ",");
-        html = html.replace(/ \»/g, "»");
-        html = html.replace(/\s{2,}/g, " ");
-        document.getElementById("textarea").innerHTML = html;
-    };
-
-    function spacePosition_emoji(character) {
-        var emojis = ["<no2>❤️</no2>", "<no2>😎😎😎</no2>", "<no2>🤮</no2>", "<no2>🤙🤙🤙</no2>", "<no2>😈</no2>", "<no2>😉😉😉</no2>", "<no2>💪🏻</no2>", "<no2>😏😏😏</no2>"];
-        document.querySelectorAll("no2").forEach((e) => e.remove()); // чистит текст от всех вставленных элементов;
-        // let initialText = document.getElementById("textarea").innerHTML.replace(/\n/g, '<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>').replace(/\s+/g, "<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>").trim() + "sdasd"; // чистит от лишних пробелов;
-
-        var html = document.getElementById("textarea").innerHTML + " ";
-        html = html.replace(/<a[^>]+>/g, "");
-        html = html.replace(/ \»/g, "»");
-        html = html.replace(/ \,/g, ",");
-        // html = html.replace(/\s{2,}/g, ' ');
-        // html = html.replace(/<(?!br\s*\/?)[^>]+>/g, '');
-        document.getElementById("textarea").innerHTML = html;
-
-        let initialText =
-            document
-                .getElementById("textarea")
-                .innerHTML.replace(/(?:\r\n|\r|\n)/g, "<br /><br />")
-                .replace(/\s+/g, "<br /><br />")
-                .trim() + " "; // чистит от лишних пробелов
-        let characterCount = initialText.split(character).length - 1; // считает кол-во пробелов;
-        let i = 0;
-        // повторяем рандомное кол-во раз, от 1 до кол-во пробелов;
-        do {
-            let initialText = document.getElementById("textarea").innerHTML;
-            let indexes = [];
-            let index = initialText.indexOf(character, 0);
-
-            while (index !== -1) {
-                indexes.push(index);
-                index = initialText.indexOf(character, index + 1);
-            }
-
-            var addedText = emojis[Math.floor(Math.random() * emojis.length)];
-
-            let randomCharacterPosition = indexes[Math.floor(Math.random() * indexes.length)];
-
-            console.log(initialText[randomCharacterPosition - 1]);
-            console.log(initialText[randomCharacterPosition - 1]);
-            console.log(initialText[randomCharacterPosition - 2]);
-            console.log(initialText[randomCharacterPosition + 1]);
-            console.log(initialText[randomCharacterPosition + 2]);
-            console.log("К О Н Е Ц   П Р О В Е Р К И");
-
-            if (
-                initialText[randomCharacterPosition - 1] == ">" ||
-                initialText[randomCharacterPosition - 1] == "." ||
-                initialText[randomCharacterPosition - 1] == "," ||
-                initialText[randomCharacterPosition - 2] == ">" ||
-                initialText[randomCharacterPosition + 3] == "и" ||
-                initialText[randomCharacterPosition + 1] == "<" ||
-                initialText[randomCharacterPosition + 2] == "<"
-            ) {
-                console.log("П Р О П У С Т И Л");
-            } else {
-                let newText = initialText.slice(0, randomCharacterPosition) + " " + addedText + initialText.slice(randomCharacterPosition);
-                newText = newText.replace(/ \»/g, "»");
-                newText = newText.replace(/ \,/g, ",");
-                document.getElementById("textarea").innerHTML = newText
-                    .replace(/(?:\r\n|\r|\n)/g, "<br />")
-                    .replace(/\s+/g, " ")
-                    .trim();
-                console.log("C Д Е Л А Л");
-            }
-            i++;
-        } while (i < Math.ceil(Math.random() * (characterCount - characterCount * 0.55)));
+    while (index !== -1) {
+	indexes.push(index);
+	index = initialText.indexOf(character, index + 1);
     }
 
-    function spacePosition_no(character) {
-        var emojis = ["<no3>не</no3>"];
-        document.querySelectorAll("no3").forEach((e) => e.remove()); // чистит текст от всех вставленных элементов;
-        // let initialText = document.getElementById("textarea").innerHTML.replace(/\n/g, '<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>').replace(/\s+/g, "<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>").trim() + "sdasd"; // чистит от лишних пробелов;
+    var addedText = emojis[Math.floor(Math.random() * emojis.length)];
 
-        var html = document.getElementById("textarea").innerHTML + " ";
-        html = html.replace(/<a[^>]+>/g, "");
-        html = html.replace(/ \»/g, "»");
-        html = html.replace(/ \,/g, ",");
-        // html = html.replace(/\s{2,}/g, ' ');
-        // html = html.replace(/<(?!br\s*\/?)[^>]+>/g, '');
-        document.getElementById("textarea").innerHTML = html;
+    let randomCharacterPosition = indexes[Math.floor(Math.random() * indexes.length)];
 
-        let initialText =
-            document
-                .getElementById("textarea")
-                .innerHTML.replace(/(?:\r\n|\r|\n)/g, "<br /><br />")
-                .replace(/\s+/g, "<br /><br />")
-                .trim() + " "; // чистит от лишних пробелов
-        let characterCount = initialText.split(character).length - 1; // считает кол-во пробелов;
-        let i = 0;
-        // повторяем рандомное кол-во раз, от 1 до кол-во пробелов;
-        do {
-            let initialText = document.getElementById("textarea").innerHTML;
-            let indexes = [];
-            let index = initialText.indexOf(character, 0);
+    console.log(initialText[randomCharacterPosition - 1]);
+    console.log(initialText[randomCharacterPosition - 1]);
+    console.log(initialText[randomCharacterPosition - 2]);
+    console.log(initialText[randomCharacterPosition + 1]);
+    console.log(initialText[randomCharacterPosition + 2]);
+    console.log("К О Н Е Ц   П Р О В Е Р К И");
 
-            while (index !== -1) {
-                indexes.push(index);
-                index = initialText.indexOf(character, index + 1);
-            }
+    if (
+	initialText[randomCharacterPosition - 1] == ">" ||
+	initialText[randomCharacterPosition - 1] == "." ||
+	initialText[randomCharacterPosition - 1] == "," ||
+	initialText[randomCharacterPosition - 2] == ">" ||
+	initialText[randomCharacterPosition + 3] == "и" ||
+	initialText[randomCharacterPosition + 1] == "<" ||
+	initialText[randomCharacterPosition + 2] == "<"
+    ) {
+	console.log("П Р О П У С Т И Л");
+    } else {
+	let newText = initialText.slice(0, randomCharacterPosition) + " " + addedText + initialText.slice(randomCharacterPosition);
+	newText = newText.replace(/ \»/g, "»");
+	newText = newText.replace(/ \,/g, ",");
+	document.getElementById("textarea").innerHTML = newText
+	    .replace(/(?:\r\n|\r|\n)/g, "<br />")
+	    .replace(/\s+/g, " ")
+	    .trim();
+	console.log("C Д Е Л А Л");
+    }
+    i++;
+} while (i < Math.ceil(Math.random() * (characterCount - characterCount * 0.8)));
+}
+// Кнопка отчистки
+document.getElementById("button-clear").onclick = function () {
+document.querySelectorAll("no1").forEach((e) => e.remove());
+document.querySelectorAll("no2").forEach((e) => e.remove());
+document.querySelectorAll("no3").forEach((e) => e.remove());
 
-            var addedText = emojis[Math.floor(Math.random() * emojis.length)];
+var html = document.getElementById("textarea").innerHTML;
+html = html.replace(/<a[^>]+>/g, "");
+html = html.replace(/<(?!br\s*\/?)[^>]+>/g, "");
+html = html.replace(/ \+/g, " ");
+html = html.replace(/ \,/g, ",");
+html = html.replace(/ \»/g, "»");
+html = html.replace(/\s{2,}/g, " ");
+document.getElementById("textarea").innerHTML = html;
+};
 
-            let randomCharacterPosition = indexes[Math.floor(Math.random() * indexes.length)];
+function spacePosition_emoji(character) {
+var emojis = ["<no2>❤️</no2>", "<no2>😎😎😎</no2>", "<no2>🤮</no2>", "<no2>🤙🤙🤙</no2>", "<no2>😈</no2>", "<no2>😉😉😉</no2>", "<no2>💪🏻</no2>", "<no2>😏😏😏</no2>"];
+document.querySelectorAll("no2").forEach((e) => e.remove()); // чистит текст от всех вставленных элементов;
+// let initialText = document.getElementById("textarea").innerHTML.replace(/\n/g, '<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>').replace(/\s+/g, "<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>").trim() + "sdasd"; // чистит от лишних пробелов;
 
-            console.log(initialText[randomCharacterPosition - 1]);
-            console.log(initialText[randomCharacterPosition - 1]);
-            console.log(initialText[randomCharacterPosition - 2]);
-            console.log(initialText[randomCharacterPosition + 1]);
-            console.log(initialText[randomCharacterPosition + 2]);
-            console.log("К О Н Е Ц   П Р О В Е Р К И");
+var html = document.getElementById("textarea").innerHTML + " ";
+html = html.replace(/<a[^>]+>/g, "");
+html = html.replace(/ \»/g, "»");
+html = html.replace(/ \,/g, ",");
+// html = html.replace(/\s{2,}/g, ' ');
+// html = html.replace(/<(?!br\s*\/?)[^>]+>/g, '');
+document.getElementById("textarea").innerHTML = html;
 
-            if (
-                initialText[randomCharacterPosition - 1] == ">" ||
-                initialText[randomCharacterPosition - 1] == "." ||
-                initialText[randomCharacterPosition + 3] == "и" ||
-                initialText[randomCharacterPosition - 2] == ">" ||
-                initialText[randomCharacterPosition - 1] == "," ||
-                initialText[randomCharacterPosition + 1] == "<" ||
-                initialText[randomCharacterPosition + 2] == "<"
-            ) {
-                console.log("П Р О П У С Т И Л");
-            } else {
-                let newText = initialText.slice(0, randomCharacterPosition) + " " + addedText + initialText.slice(randomCharacterPosition);
-                newText = newText.replace(/ \»/g, "»");
-                newText = newText.replace(/ \,/g, ",");
-                document.getElementById("textarea").innerHTML = newText
-                    .replace(/(?:\r\n|\r|\n)/g, "<br />")
-                    .replace(/\s+/g, " ")
-                    .trim();
-                console.log("C Д Е Л А Л");
-            }
-            i++;
-        } while (i < Math.ceil(Math.random() * (characterCount - characterCount * 0.95)));
+let initialText =
+    document
+	.getElementById("textarea")
+	.innerHTML.replace(/(?:\r\n|\r|\n)/g, "<br /><br />")
+	.replace(/\s+/g, "<br /><br />")
+	.trim() + " "; // чистит от лишних пробелов
+let characterCount = initialText.split(character).length - 1; // считает кол-во пробелов;
+let i = 0;
+// повторяем рандомное кол-во раз, от 1 до кол-во пробелов;
+do {
+    let initialText = document.getElementById("textarea").innerHTML;
+    let indexes = [];
+    let index = initialText.indexOf(character, 0);
+
+    while (index !== -1) {
+	indexes.push(index);
+	index = initialText.indexOf(character, index + 1);
     }
 
-    function textgimn() {
-        document.getElementById("textarea").innerHTML =
-            "Союз нерушимый республик свободных<br>Сплотила навеки Великая Русь.<br>Да здравствует созданный волей народов<br>Единый, могучий Советский Союз!<br><br>Славься, Отечество наше свободное,<br>Дружбы народов надёжный оплот!<br>Партия Ленина — сила народная<br>Нас к торжеству коммунизма ведёт!<br>Сквозь грозы сияло нам солнце свободы,<br>И Ленин великий нам путь озарил:<br>На правое дело он поднял народы,<br>На труд и на подвиги нас вдохновил!<br><br>Славься, Отечество наше свободное,<br>Дружбы народов надёжный оплот!<br>Партия Ленина — сила народная<br>Нас к торжеству коммунизма ведёт!<br><br>В победе бессмертных идей коммунизма<br>Мы видим грядущее нашей страны,<br>И Красному знамени славной Отчизны<br>Мы будем всегда беззаветно верны!<br><br>Славься, Отечество наше свободное,<br>Дружбы народов надёжный оплот!<br>Партия Ленина — сила народная<br>Нас к торжеству коммунизма ведёт!";
+    var addedText = emojis[Math.floor(Math.random() * emojis.length)];
+
+    let randomCharacterPosition = indexes[Math.floor(Math.random() * indexes.length)];
+
+    console.log(initialText[randomCharacterPosition - 1]);
+    console.log(initialText[randomCharacterPosition - 1]);
+    console.log(initialText[randomCharacterPosition - 2]);
+    console.log(initialText[randomCharacterPosition + 1]);
+    console.log(initialText[randomCharacterPosition + 2]);
+    console.log("К О Н Е Ц   П Р О В Е Р К И");
+
+    if (
+	initialText[randomCharacterPosition - 1] == ">" ||
+	initialText[randomCharacterPosition - 1] == "." ||
+	initialText[randomCharacterPosition - 1] == "," ||
+	initialText[randomCharacterPosition - 2] == ">" ||
+	initialText[randomCharacterPosition + 3] == "и" ||
+	initialText[randomCharacterPosition + 1] == "<" ||
+	initialText[randomCharacterPosition + 2] == "<"
+    ) {
+	console.log("П Р О П У С Т И Л");
+    } else {
+	let newText = initialText.slice(0, randomCharacterPosition) + " " + addedText + initialText.slice(randomCharacterPosition);
+	newText = newText.replace(/ \»/g, "»");
+	newText = newText.replace(/ \,/g, ",");
+	document.getElementById("textarea").innerHTML = newText
+	    .replace(/(?:\r\n|\r|\n)/g, "<br />")
+	    .replace(/\s+/g, " ")
+	    .trim();
+	console.log("C Д Е Л А Л");
+    }
+    i++;
+} while (i < Math.ceil(Math.random() * (characterCount - characterCount * 0.55)));
+}
+
+function spacePosition_no(character) {
+var emojis = ["<no3>не</no3>"];
+document.querySelectorAll("no3").forEach((e) => e.remove()); // чистит текст от всех вставленных элементов;
+// let initialText = document.getElementById("textarea").innerHTML.replace(/\n/g, '<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>').replace(/\s+/g, "<br> FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF <br>").trim() + "sdasd"; // чистит от лишних пробелов;
+
+var html = document.getElementById("textarea").innerHTML + " ";
+html = html.replace(/<a[^>]+>/g, "");
+html = html.replace(/ \»/g, "»");
+html = html.replace(/ \,/g, ",");
+// html = html.replace(/\s{2,}/g, ' ');
+// html = html.replace(/<(?!br\s*\/?)[^>]+>/g, '');
+document.getElementById("textarea").innerHTML = html;
+
+let initialText =
+    document
+	.getElementById("textarea")
+	.innerHTML.replace(/(?:\r\n|\r|\n)/g, "<br /><br />")
+	.replace(/\s+/g, "<br /><br />")
+	.trim() + " "; // чистит от лишних пробелов
+let characterCount = initialText.split(character).length - 1; // считает кол-во пробелов;
+let i = 0;
+// повторяем рандомное кол-во раз, от 1 до кол-во пробелов;
+do {
+    let initialText = document.getElementById("textarea").innerHTML;
+    let indexes = [];
+    let index = initialText.indexOf(character, 0);
+
+    while (index !== -1) {
+	indexes.push(index);
+	index = initialText.indexOf(character, index + 1);
     }
 
-    function textpushkin() {
-        document.getElementById("textarea").innerHTML =
-            "У лукоморья дуб зелёный<br>Златая цепь на дубе том:<br>И днём и ночью кот учёный<br>Всё ходит по цепи кругом;<br>Идёт направо — песнь заводит,<br>Налево — сказку говорит.<br>Там чудеса: там леший бродит,<br>Русалка на ветвях сидит;<br>Там на неведомых дорожках<br>Следы невиданных зверей;<br>Избушка там на курьих ножках<br>Стоит без окон, без дверей;";
+    var addedText = emojis[Math.floor(Math.random() * emojis.length)];
+
+    let randomCharacterPosition = indexes[Math.floor(Math.random() * indexes.length)];
+
+    console.log(initialText[randomCharacterPosition - 1]);
+    console.log(initialText[randomCharacterPosition - 1]);
+    console.log(initialText[randomCharacterPosition - 2]);
+    console.log(initialText[randomCharacterPosition + 1]);
+    console.log(initialText[randomCharacterPosition + 2]);
+    console.log("К О Н Е Ц   П Р О В Е Р К И");
+
+    if (
+	initialText[randomCharacterPosition - 1] == ">" ||
+	initialText[randomCharacterPosition - 1] == "." ||
+	initialText[randomCharacterPosition + 3] == "и" ||
+	initialText[randomCharacterPosition - 2] == ">" ||
+	initialText[randomCharacterPosition - 1] == "," ||
+	initialText[randomCharacterPosition + 1] == "<" ||
+	initialText[randomCharacterPosition + 2] == "<"
+    ) {
+	console.log("П Р О П У С Т И Л");
+    } else {
+	let newText = initialText.slice(0, randomCharacterPosition) + " " + addedText + initialText.slice(randomCharacterPosition);
+	newText = newText.replace(/ \»/g, "»");
+	newText = newText.replace(/ \,/g, ",");
+	document.getElementById("textarea").innerHTML = newText
+	    .replace(/(?:\r\n|\r|\n)/g, "<br />")
+	    .replace(/\s+/g, " ")
+	    .trim();
+	console.log("C Д Е Л А Л");
     }
+    i++;
+} while (i < Math.ceil(Math.random() * (characterCount - characterCount * 0.95)));
+}
 
-    function textRefresh(firstText) {
-        document.getElementById("textarea").innerHTML = firstText;
-    }
+function textgimn() {
+document.getElementById("textarea").innerHTML =
+    "Союз нерушимый республик свободных<br>Сплотила навеки Великая Русь.<br>Да здравствует созданный волей народов<br>Единый, могучий Советский Союз!<br><br>Славься, Отечество наше свободное,<br>Дружбы народов надёжный оплот!<br>Партия Ленина — сила народная<br>Нас к торжеству коммунизма ведёт!<br>Сквозь грозы сияло нам солнце свободы,<br>И Ленин великий нам путь озарил:<br>На правое дело он поднял народы,<br>На труд и на подвиги нас вдохновил!<br><br>Славься, Отечество наше свободное,<br>Дружбы народов надёжный оплот!<br>Партия Ленина — сила народная<br>Нас к торжеству коммунизма ведёт!<br><br>В победе бессмертных идей коммунизма<br>Мы видим грядущее нашей страны,<br>И Красному знамени славной Отчизны<br>Мы будем всегда беззаветно верны!<br><br>Славься, Отечество наше свободное,<br>Дружбы народов надёжный оплот!<br>Партия Ленина — сила народная<br>Нас к торжеству коммунизма ведёт!";
+}
 
-    function copy_data(containerid) {
-        var html = document.getElementById("textarea").innerHTML;
-        html = html.replace(/<\/div>/gi, "\n");
-        html = html.replace(/<\/li>/gi, "\n");
-        html = html.replace(/<li>/gi, "  *");
-        html = html.replace(/<\/ul>/gi, "\n");
-        html = html.replace(/<\/p>/gi, "\n");
-        html = html.replace(/<a[^>]+>/g, "");
-        html = html.replace(/<(?!br\s*\/?)[^>]+>/g, "");
-        html = html.replace(/<br\s*\/?>/gm, "\n");
-        document.getElementById("select_txt").innerHTML = html;
-        document.getElementById("select_txt").style.display = "block";
+function textpushkin() {
+document.getElementById("textarea").innerHTML =
+    "У лукоморья дуб зелёный<br>Златая цепь на дубе том:<br>И днём и ночью кот учёный<br>Всё ходит по цепи кругом;<br>Идёт направо — песнь заводит,<br>Налево — сказку говорит.<br>Там чудеса: там леший бродит,<br>Русалка на ветвях сидит;<br>Там на неведомых дорожках<br>Следы невиданных зверей;<br>Избушка там на курьих ножках<br>Стоит без окон, без дверей;";
+}
 
-        var range = document.createRange();
-        range.selectNode(containerid); //changed here
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-        document.execCommand("copy");
-        window.getSelection().removeAllRanges();
+function textRefresh(firstText) {
+document.getElementById("textarea").innerHTML = firstText;
+}
 
-        //   var last = this.innerHTML;
-        //     this.innerHTML = "done";
-        //     this.textContent = "done";
-        //     alert (this.innerHTML);
-        //     // setTimeout(
-        //     //     function () {
-        //     //         this.innerHTML = last;
-        //     //     }.bind(this),
-        //     //     500
-        //     // );
+function copy_data(containerid) {
+var html = document.getElementById("textarea").innerHTML;
+html = html.replace(/<\/div>/gi, "\n");
+html = html.replace(/<\/li>/gi, "\n");
+html = html.replace(/<li>/gi, "  *");
+html = html.replace(/<\/ul>/gi, "\n");
+html = html.replace(/<\/p>/gi, "\n");
+html = html.replace(/<a[^>]+>/g, "");
+html = html.replace(/<(?!br\s*\/?)[^>]+>/g, "");
+html = html.replace(/<br\s*\/?>/gm, "\n");
+document.getElementById("select_txt").innerHTML = html;
+document.getElementById("select_txt").style.display = "block";
 
-        document.getElementById("select_txt").style.display = "none";
+var range = document.createRange();
+range.selectNode(containerid); //changed here
+window.getSelection().removeAllRanges();
+window.getSelection().addRange(range);
+document.execCommand("copy");
+window.getSelection().removeAllRanges();
 
-        var last = document.getElementById("button-copy").innerHTML;
-        document.getElementById("button-copy").innerHTML = "done";
-        setTimeout(
-            function () {
-                document.getElementById("button-copy").innerHTML = last;
-            }.bind(document.getElementById("button-copy")),
-            500
-        );
-    }
+//   var last = this.innerHTML;
+//     this.innerHTML = "done";
+//     this.textContent = "done";
+//     alert (this.innerHTML);
+//     // setTimeout(
+//     //     function () {
+//     //         this.innerHTML = last;
+//     //     }.bind(this),
+//     //     500
+//     // );
+
+document.getElementById("select_txt").style.display = "none";
+
+var last = document.getElementById("button-copy").innerHTML;
+document.getElementById("button-copy").innerHTML = "done";
+setTimeout(
+    function () {
+	document.getElementById("button-copy").innerHTML = last;
+    }.bind(document.getElementById("button-copy")),
+    500
+);
+}
 </script>
 
 <script>
-    //     JQ
-    jQuery.fn.selectText = function () {
-        var doc = document;
-        var element = this[0];
-        console.log(this, element);
-        if (doc.body.createTextRange) {
-            var range = document.body.createTextRange();
-            range.moveToElementText(element);
-            range.select();
-        } else if (window.getSelection) {
-            var selection = window.getSelection();
-            var range = document.createRange();
-            range.selectNodeContents(element);
-            selection.removeAllRanges();
-            selection.addRange(range);
-        }
-    };
+//     JQ
+jQuery.fn.selectText = function () {
+var doc = document;
+var element = this[0];
+console.log(this, element);
+if (doc.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(element);
+    range.select();
+} else if (window.getSelection) {
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(element);
+    selection.removeAllRanges();
+    selection.addRange(range);
+}
+};
 
-    if (~["Android", "iPhone", "iPod", "iPad", "BlackBerry"].indexOf(navigator.platform)) {
-        $("#textarea").on("mouseover", function () {
-            if ($("#textarea").is(":focus")) {
-                console.log("Has Focus");
-            } else {
-                console.log("Doesn't Have Focus");
-                // $("#textarea").click(function () {
-                $("#textarea").selectText();
-                // }
-            }
-        });
+if (~["Android", "iPhone", "iPod", "iPad", "BlackBerry"].indexOf(navigator.platform)) {
+$("#textarea").on("mouseover", function () {
+    if ($("#textarea").is(":focus")) {
+	console.log("Has Focus");
+    } else {
+	console.log("Doesn't Have Focus");
+	// $("#textarea").click(function () {
+	$("#textarea").selectText();
+	// }
     }
+});
+}
 
-    $("#textarea").dblclick(function () {
-        $("#textarea").selectText();
-    });
+$("#textarea").dblclick(function () {
+$("#textarea").selectText();
+});
 </script>
 </html>
